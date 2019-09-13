@@ -52,6 +52,19 @@ def give_station_info(origin, destination)
   #binding.pry
 end
 
+def train_art
+  puts <<-'EOF'
+  ___________   _______________________________________^__
+   ___   ___ |||  ___   ___   ___    ___ ___  |   __  ,----\
+  |   | |   |||| |   | |   | |   |  |   |   | |  |  | |_____\
+  |___| |___|||| |___| |___| |___|  | O | O | |  |  |        \
+             |||                    |___|___| |  |__|         )
+  ___________|||______________________________|______________/
+  EOF
+  puts
+  puts "********************************************************************************".cyan
+end
+
 # def give_destinations(origin)
 #     response_string = RestClient.get('http://developer.itsmarta.com/RealtimeTrain/RestServiceNextTrain/GetRealtimeArrivals?apikey=4d22f269-2012-46ed-9243-2243357c468e')
 #     response_hash = JSON.parse(response_string)

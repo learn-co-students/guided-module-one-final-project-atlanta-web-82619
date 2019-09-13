@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
             station_id = review.station_id
             station_name = Station.all.find_by(id: station_id)
             puts "********************************************************************************".blue
-            puts "Your review for #{station_name.name} is: *#{review.review}*".cyan
+            puts "Your review for *#{station_name.name}* is: *#{review.review}*".cyan
             puts "********************************************************************************".blue
             sleep(0.5)
         end  

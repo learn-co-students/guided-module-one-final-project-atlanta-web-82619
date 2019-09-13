@@ -37,7 +37,8 @@ class CommandLineInterface
 
     def menu(user)
         prompt = TTY::Prompt.new
-        option = ["Find next train time", "Find all stations by line", "Add station review", "Search my reviews", "Exit"]
+        option = ["Find next train time", "Find all stations by line", "Add station review", 
+        "Search my reviews", "Search all reviews by station", "Exit"]
         input = prompt.select("Hello #{user.username}! Please choose from the following options:".blue, option) 
         if input == "Find next train time"
             origin = CommandLineInterface.get_line
@@ -70,6 +71,11 @@ class CommandLineInterface
             Review.create(station_id: Station.all.find_by(name: station).id, review: review, user_id: user.id)
         elsif input == "Search my reviews"
             user.search_reviews
+        elsif input == "Search all reviews by station"
+            puts "Please enter a station name: "
+            station_name = gets.chomp
+            station_name = station_name.split.map {|c| c.capitalize}.join(" ")
+            Review.review_by_station(station_name)
         elsif input == "Exit"
             exit
         end
